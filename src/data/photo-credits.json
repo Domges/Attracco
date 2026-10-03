@@ -1,1 +1,74 @@
-{}
+{
+  "hero": {
+    "file": "/images/photos/hero.jpg",
+    "title": "22 Punta de Grotta Ardito (Polignano a Mare), des del mirador de Vico Gualdella.jpg",
+    "author": "Enric",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:22_Punta_de_Grotta_Ardito_(Polignano_a_Mare),_des_del_mirador_de_Vico_Gualdella.jpg",
+    "retrievedAt": "2026-10-03"
+  },
+  "chef-dinner": {
+    "file": "/images/photos/chef-dinner.jpg",
+    "title": "Orecchietterucolaepomodorino.jpg",
+    "author": "Giuseppevalvano",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orecchietterucolaepomodorino.jpg",
+    "retrievedAt": "2026-10-03"
+  },
+  "cooking-class": {
+    "file": "/images/photos/cooking-class.jpg",
+    "title": "Orecchiette pugliesi.JPG",
+    "author": "Original uploader was Signorealex at it.wikipedia",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orecchiette_pugliesi.JPG",
+    "retrievedAt": "2026-10-03"
+  },
+  "airport-transfer": {
+    "file": "/images/photos/airport-transfer.jpg",
+    "title": "Olive Groves in Puglia Countryside - panoramio (8).jpg",
+    "author": "Patrick Nouhailler's…",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olive_Groves_in_Puglia_Countryside_-_panoramio_(8).jpg",
+    "retrievedAt": "2026-10-03"
+  },
+  "itria-valley": {
+    "file": "/images/photos/itria-valley.jpg",
+    "title": "Olivi e Trulli - panoramio.jpg",
+    "author": "Carlo Pelagalli",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olivi_e_Trulli_-_panoramio.jpg",
+    "retrievedAt": "2026-10-03"
+  },
+  "sailing-polignano": {
+    "file": "/images/photos/sailing-polignano.jpg",
+    "title": "Polignano a Mare - Comune di Polignano a Mare - 2025-09-27 16-50-00 001.jpg",
+    "author": "Adinolfia",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polignano_a_Mare_-_Comune_di_Polignano_a_Mare_-_2025-09-27_16-50-00_001.jpg",
+    "retrievedAt": "2026-10-03"
+  },
+  "sailing-salento": {
+    "file": "/images/photos/sailing-salento.jpg",
+    "title": "Sunset at Gallipoli - Coucher de soleil à Gallipoli (45667324072).jpg",
+    "author": "Frédérique Voisin-Demery from Grenoble, France",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Gallipoli_-_Coucher_de_soleil_%C3%A0_Gallipoli_(45667324072).jpg",
+    "retrievedAt": "2026-10-03"
+  },
+  "ostuni": {
+    "file": "/images/photos/ostuni.jpg",
+    "title": "Ostuni 3.jpg",
+    "author": "Luce61",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ostuni_3.jpg",
+    "retrievedAt": "2026-10-03"
+  }
+}

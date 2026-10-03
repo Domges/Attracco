@@ -74,10 +74,22 @@ const ILLUSTRATIONS: Record<ImageKey, { src: string; alt: Localized }> = {
 
 const PHOTOS = photoCredits as Partial<Record<ImageKey, PhotoCredit>>;
 
+// Testi alternativi delle fotografie scelte (images.sources.json): da aggiornare se si cambia foto.
+const PHOTO_ALT: Partial<Record<ImageKey, Localized>> = {
+  hero: { it: "Case bianche di Polignano a Mare sulla scogliera a picco sul mare", en: "White houses of Polignano a Mare on the cliffs above the sea" },
+  "chef-dinner": { it: "Piatto di orecchiette con rucola e pomodorini, sullo sfondo la campagna pugliese", en: "Orecchiette with rocket and cherry tomatoes, Apulian countryside in the background" },
+  "cooking-class": { it: "Orecchiette fatte a mano su un vassoio", en: "Hand-made orecchiette on a tray" },
+  "airport-transfer": { it: "Strada di campagna tra ulivi secolari e muretti a secco", en: "Country road between ancient olive trees and dry-stone walls" },
+  "itria-valley": { it: "Trulli tra gli ulivi nella campagna della Valle d'Itria", en: "Trulli among olive trees in the Itria Valley countryside" },
+  "sailing-polignano": { it: "Costa rocciosa di Polignano a Mare con il mare blu e un isolotto", en: "Rocky coast of Polignano a Mare with blue sea and a small island" },
+  "sailing-salento": { it: "Tramonto sul mare di Gallipoli", en: "Sunset over the sea at Gallipoli" },
+  ostuni: { it: "Ostuni, la città bianca sulla collina tra gli ulivi", en: "Ostuni, the white town on the hill among olive trees" },
+};
+
 export function siteImage(key: ImageKey): SiteImage {
   const base = ILLUSTRATIONS[key];
   const photo = PHOTOS[key];
-  return photo ? { key, src: photo.file, alt: base.alt, credit: photo } : { key, ...base };
+  return photo ? { key, src: photo.file, alt: PHOTO_ALT[key] ?? base.alt, credit: photo } : { key, ...base };
 }
 
 export const ALL_IMAGE_KEYS = Object.keys(ILLUSTRATIONS) as ImageKey[];

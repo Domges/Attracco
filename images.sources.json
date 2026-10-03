@@ -1,11 +1,11 @@
 {
   "_istruzioni": "Per ogni chiave indicare il titolo esatto di un file su Wikimedia Commons (es. 'File:Nome.jpg'), scelto verificando che non ritragga persone riconoscibili, marchi o beni culturali pubblici in primo piano. Poi eseguire: npm run images:fetch",
-  "hero": "[File:... Polignano a Mare, da scegliere]",
-  "chef-dinner": "[File:... tavola / cucina pugliese, da scegliere]",
-  "cooking-class": "[File:... orecchiette, da scegliere]",
-  "airport-transfer": "[File:... strada tra gli ulivi, da scegliere]",
-  "itria-valley": "[File:... trulli Valle d'Itria, da scegliere]",
-  "sailing-polignano": "[File:... costa tra Monopoli e Polignano, da scegliere]",
-  "sailing-salento": "[File:... tramonto Gallipoli, da scegliere]",
-  "ostuni": "[File:... Ostuni, da scegliere]"
+  "hero": "File:22 Punta de Grotta Ardito (Polignano a Mare), des del mirador de Vico Gualdella.jpg",
+  "chef-dinner": "File:Orecchietterucolaepomodorino.jpg",
+  "cooking-class": "File:Orecchiette pugliesi.JPG",
+  "airport-transfer": "File:Olive Groves in Puglia Countryside - panoramio (8).jpg",
+  "itria-valley": "File:Olivi e Trulli - panoramio.jpg",
+  "sailing-polignano": "File:Polignano a Mare - Comune di Polignano a Mare - 2025-09-27 16-50-00 001.jpg",
+  "sailing-salento": "File:Sunset at Gallipoli - Coucher de soleil à Gallipoli (45667324072).jpg",
+  "ostuni": "File:Ostuni 3.jpg"
 }
