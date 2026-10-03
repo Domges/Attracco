@@ -5,18 +5,35 @@ import type { ReactNode } from "react";
 import { OPERATOR } from "@/lib/legal";
 import { LocaleProvider, useI18n } from "@/lib/i18n";
 
+function Logo() {
+  // Ancora stilizzata: richiama il nome "Attracco".
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="5" r="2.5" />
+      <path d="M12 7.5V21M7 11h10M4.5 14.5a7.5 6.5 0 0 0 15 0" />
+    </svg>
+  );
+}
+
 function Header() {
   const { locale, setLocale, t } = useI18n();
   return (
     <header className="site">
       <div className="wrap">
         <Link href="/" className="brand">
-          Attracco<small>{t.tagline}</small>
+          <Logo />
+          <span>
+            Attracco <small>{t.tagline}</small>
+          </span>
         </Link>
-        <div className="lang" role="group" aria-label="Lingua / Language">
-          <button aria-pressed={locale === "it"} onClick={() => setLocale("it")}>IT</button>{" "}
-          <button aria-pressed={locale === "en"} onClick={() => setLocale("en")}>EN</button>
-        </div>
+        <nav className="nav" aria-label="Menu">
+          <Link className="nav-link" href="/#servizi">{t.navServices}</Link>
+          <Link className="nav-link" href="/#come-funziona">{t.navHow}</Link>
+          <div className="lang" role="group" aria-label="Lingua / Language">
+            <button aria-pressed={locale === "it"} onClick={() => setLocale("it")}>IT</button>
+            <button aria-pressed={locale === "en"} onClick={() => setLocale("en")}>EN</button>
+          </div>
+        </nav>
       </div>
     </header>
   );

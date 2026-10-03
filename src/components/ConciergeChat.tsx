@@ -28,9 +28,13 @@ export function ConciergeChat() {
     logRef.current?.scrollTo({ top: logRef.current.scrollHeight });
   }, [items]);
 
-  async function send(e: FormEvent) {
+  function onSubmit(e: FormEvent) {
     e.preventDefault();
-    const text = input.trim().slice(0, 2000);
+    send(input);
+  }
+
+  async function send(raw: string) {
+    const text = raw.trim().slice(0, 2000);
     if (!text || busy) return;
     setInput("");
     setBusy(true);
@@ -96,10 +100,14 @@ export function ConciergeChat() {
   }
 
   return (
-    <div className="card chat" aria-label={t.aiBadge}>
-      <p className="ai-notice" role="note">
-        <span className="tag">{t.aiBadge}</span> {t.aiNotice} <Link href="/legal/concierge-ai">{t.aiNoticeLink}</Link>
-      </p>
+    <div className={`chat ${items.length ? "active" : ""}`} aria-label={t.aiBadge}>
+      <div className="chat-head">
+        <div>
+          <h2>{t.askTitle}</h2>
+          <p className="muted">{t.askHint}</p>
+        </div>
+        <span className="ai-pill">{t.aiBadge}</span>
+      </div>
       <div className="chat-log" ref={logRef} aria-live="polite">
         <div className="msg assistant">{t.chatWelcome}</div>
         {items.map((item, i) =>
@@ -125,7 +133,16 @@ export function ConciergeChat() {
         )}
         {busy && items[items.length - 1]?.kind === "user" && <div className="msg assistant muted">…</div>}
       </div>
-      <form onSubmit={send}>
+      {items.length === 0 && (
+        <div className="chips">
+          {t.chips.map((c) => (
+            <button key={c} type="button" className="chip" onClick={() => send(c)} disabled={busy}>
+              {c}
+            </button>
+          ))}
+        </div>
+      )}
+      <form onSubmit={onSubmit}>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -137,6 +154,9 @@ export function ConciergeChat() {
           {t.send}
         </button>
       </form>
+      <p className="ai-notice" role="note">
+        {t.aiNotice} <Link href="/legal/concierge-ai">{t.aiNoticeLink}</Link>
+      </p>
     </div>
   );
 }
