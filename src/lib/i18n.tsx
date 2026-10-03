@@ -9,6 +9,8 @@ const it = {
   heroText:
     "Racconta cosa desideri: il concierge AI ti propone il servizio giusto tra professionisti locali selezionati, con prezzo chiaro e pagamento sicuro.",
   services: "Servizi",
+  galleryTitle: "La Puglia che ti aspetta",
+  imageCredits: "Crediti immagini",
   chef: "Chef privato",
   driver: "Autista NCC",
   sailing: "Barca a vela",
@@ -92,6 +94,8 @@ const en: typeof it = {
   heroText:
     "Tell us what you'd like: the AI concierge suggests the right service from selected local professionals, with clear prices and secure payment.",
   services: "Services",
+  galleryTitle: "The Puglia waiting for you",
+  imageCredits: "Image credits",
   chef: "Private chef",
   driver: "Private driver",
   sailing: "Sailing",

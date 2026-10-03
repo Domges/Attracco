@@ -7,6 +7,8 @@
 // I dati dei fornitori tra parentesi quadre sono segnaposto da completare con i
 // dati reali verificati in fase di onboarding (visura, licenze, polizze).
 
+import type { ImageKey } from "./images";
+
 export type Locale = "it" | "en";
 export type Localized = Record<Locale, string>;
 export type Category = "chef" | "driver" | "sailing";
@@ -81,6 +83,7 @@ export interface Service {
   cancellation: Localized;
   // Il servizio richiede dati su allergie/intolleranze (dati relativi alla salute).
   collectsDietaryInfo: boolean;
+  image: ImageKey;
 }
 
 const ALL_YEAR = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
@@ -139,6 +142,7 @@ export const PROVIDERS: Provider[] = [
 export const SERVICES: Service[] = [
   {
     id: "chef-cena-pugliese",
+    image: "chef-dinner",
     category: "chef",
     providerId: "chef-mare",
     title: { it: "Chef privato — Cena pugliese a domicilio", en: "Private chef — Apulian dinner at your villa" },
@@ -166,6 +170,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "chef-cooking-class",
+    image: "cooking-class",
     category: "chef",
     providerId: "chef-mare",
     title: { it: "Cooking class — Orecchiette e focaccia", en: "Cooking class — Orecchiette and focaccia" },
@@ -193,6 +198,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "ncc-aeroporto",
+    image: "airport-transfer",
     category: "driver",
     providerId: "ncc-levante",
     title: { it: "Autista NCC — Transfer aeroporto", en: "Private driver — Airport transfer" },
@@ -220,6 +226,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "ncc-tour-giornata",
+    image: "itria-valley",
     category: "driver",
     providerId: "ncc-levante",
     title: { it: "Autista NCC a disposizione — Tour della Valle d'Itria", en: "Private driver at your disposal — Itria Valley tour" },
@@ -247,6 +254,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "vela-mezza-giornata",
+    image: "sailing-polignano",
     category: "sailing",
     providerId: "vela-adriatico",
     title: { it: "Barca a vela — Mezza giornata a Polignano", en: "Sailing — Half day off Polignano" },
@@ -274,6 +282,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "vela-tramonto-salento",
+    image: "sailing-salento",
     category: "sailing",
     providerId: "vela-adriatico",
     title: { it: "Barca a vela — Tramonto nel Salento", en: "Sailing — Salento sunset cruise" },

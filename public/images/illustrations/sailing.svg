@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Barca a vela nel mare turchese della costa pugliese">
+  <defs>
+    <linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc6e0"/><stop offset="1" stop-color="#e6f5f6"/></linearGradient>
+    <linearGradient id="m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2fb0bf"/><stop offset="1" stop-color="#0f5e7a"/></linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#s)"/>
+  <ellipse cx="300" cy="150" rx="120" ry="28" fill="#fff" opacity=".7"/><ellipse cx="900" cy="110" rx="150" ry="30" fill="#fff" opacity=".6"/>
+  <path d="M0 420 Q150 400 260 410 L330 420 Z" fill="#d9be8c"/>
+  <rect y="420" width="1200" height="330" fill="url(#m)"/>
+  <g stroke="#c6eef2" stroke-width="3" stroke-linecap="round" opacity=".6">
+    <path d="M80 520 h120 M260 600 h90 M900 520 h140 M980 640 h120 M120 680 h160 M760 700 h100"/>
+  </g>
+  <g transform="translate(440 140)">
+    <path d="M150 0 V330" stroke="#5a4a3a" stroke-width="7"/>
+    <path d="M156 10 L156 320 L340 320 Z" fill="#fffdf8"/>
+    <path d="M144 30 L144 320 L20 320 Z" fill="#f4ede1"/>
+    <path d="M150 0 l40 12 l-40 12z" fill="#0f5e7a"/>
+    <path d="M-20 335 H350 L310 395 H20 Z" fill="#fdfaf4"/>
+    <path d="M10 365 H330" stroke="#0f5e7a" stroke-width="6"/>
+    <path d="M-40 405 Q160 425 370 405" stroke="#e6f7f8" stroke-width="5" fill="none" opacity=".8"/>
+  </g>
+</svg>

@@ -2,14 +2,15 @@
   "name": "attracco",
   "version": "0.1.0",
   "private": true,
-  "description": "Attracco — concierge AI per esperienze turistiche in Puglia (attracco.app)",
+  "description": "Attracco \u2014 concierge AI per esperienze turistiche in Puglia (attracco.app)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
     "db:migrate": "node scripts/migrate.mjs",
-    "test": "node --test --experimental-strip-types tests/*.test.ts"
+    "test": "node --test --experimental-strip-types tests/*.test.ts",
+    "images:fetch": "node scripts/fetch-commons-images.mjs"
   },
   "engines": {
     "node": ">=20"

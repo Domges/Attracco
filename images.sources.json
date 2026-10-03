@@ -1,0 +1,11 @@
+{
+  "_istruzioni": "Per ogni chiave indicare il titolo esatto di un file su Wikimedia Commons (es. 'File:Nome.jpg'), scelto verificando che non ritragga persone riconoscibili, marchi o beni culturali pubblici in primo piano. Poi eseguire: npm run images:fetch",
+  "hero": "[File:... Polignano a Mare, da scegliere]",
+  "chef-dinner": "[File:... tavola / cucina pugliese, da scegliere]",
+  "cooking-class": "[File:... orecchiette, da scegliere]",
+  "airport-transfer": "[File:... strada tra gli ulivi, da scegliere]",
+  "itria-valley": "[File:... trulli Valle d'Itria, da scegliere]",
+  "sailing-polignano": "[File:... costa tra Monopoli e Polignano, da scegliere]",
+  "sailing-salento": "[File:... tramonto Gallipoli, da scegliere]",
+  "ostuni": "[File:... Ostuni, da scegliere]"
+}

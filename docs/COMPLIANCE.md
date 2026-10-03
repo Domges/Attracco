@@ -44,7 +44,13 @@ Questi requisiti non sono verificabili dal codice e vanno gestiti in fase di onb
 
 Il contratto di adesione dei fornitori (P2B) dovrebbe coprire: commissioni, criteri di posizionamento nel catalogo e nelle risposte del concierge (Reg. (UE) 2019/1150), obblighi di conferma entro 48 ore, manleva per mancanza di titoli abilitativi, gestione dei dati dei clienti, obblighi DAC7.
 
-## 6. Checklist operativa prima del go-live
+## 6. Immagini
+
+Il sito usa oggi illustrazioni originali realizzate per Attracco (`public/images/illustrations/`), prive di diritti di terzi. Le fotografie reali si aggiungono indicando in `images.sources.json` il file di Wikimedia Commons e lanciando `npm run images:fetch`: lo script accetta solo pubblico dominio, CC0, CC BY e CC BY-SA, scarta i file con restrizioni non di copyright segnalate da Commons (diritti della personalità, marchi) e registra autore, licenza e fonte. Il sito pubblica l'attribuzione sotto la foto e nella pagina «Crediti immagini». Per le CC BY-SA lo share-alike riguarda la sola immagine eventualmente modificata, non il sito; ridimensionamento e ritaglio sono dichiarati nella pagina crediti.
+
+Restano tre profili da valutare caso per caso, indipendentemente dalla licenza d'autore. Le persone riconoscibili richiedono il consenso alla diffusione del ritratto (artt. 96-97 L. 633/1941) e, per uso promozionale, la licenza Commons non basta. I beni culturali pubblici (ad esempio Castel del Monte, castelli e musei statali) sono soggetti, per la riproduzione a fini commerciali, alla concessione e ai canoni degli artt. 107-108 D.Lgs. 42/2004, con un orientamento giurisprudenziale recente restrittivo [verificare]: è preferibile scegliere paesaggi, borghi e mare, evitando beni culturali come soggetto principale. In Italia non è riconosciuta una libertà di panorama generale per opere protette, per cui vanno evitate opere d'arte o architetture contemporanee in primo piano. In alternativa a Commons si possono usare foto commissionate a un fotografo locale con cessione dei diritti per uso commerciale e web, che è la soluzione più pulita per un sito promozionale.
+
+## 7. Checklist operativa prima del go-live
 
 - [ ] Completare i dati del gestore in `src/lib/legal.ts` (ragione sociale, P.IVA, REA, PEC, email privacy)
 - [ ] Completare i dati reali di ciascun fornitore e servizio in `src/data/catalog.ts` (ragione sociale, P.IVA, licenze, polizze, prezzi IVA inclusa)
@@ -59,4 +65,5 @@ Il contratto di adesione dei fornitori (P2B) dovrebbe coprire: commissioni, crit
 - [ ] Verificare art. 50 AI Act (tempistiche) e L. 132/2025
 - [ ] Verificare entità Stripe contraente e termini Connect; attivare ricevute email
 - [ ] Traduzione inglese dei testi legali rivista da un professionista
+- [ ] Scegliere le foto (Commons o fotografo con cessione diritti) e verificare persone, beni culturali e opere protette
 - [ ] Aggiornare `TERMS_VERSION` / `PRIVACY_VERSION` a ogni modifica dei testi

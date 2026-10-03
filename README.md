@@ -27,6 +27,8 @@ Turista ──chat──▶ /api/chat ──▶ Claude ──tool──▶ catal
 | `src/app/api/` | Chat, prenotazioni, webhook Stripe, azioni di back-office |
 | `src/app/legal/` | Termini, privacy, cookie, trasparenza AI, note legali (IT/EN) |
 | `db/schema.sql` | Schema PostgreSQL |
+| `src/data/images.ts` | Registro immagini (illustrazioni e foto con crediti) |
+| `scripts/fetch-commons-images.mjs` | Download foto da Wikimedia Commons con controllo licenza |
 | `scripts/retention.mjs` | Anonimizzazione periodica dei dati personali |
 | `docs/COMPLIANCE.md` | Mappa degli adempimenti e punti da validare |
 
@@ -55,6 +57,16 @@ Per i webhook in locale: `stripe listen --forward-to localhost:3000/api/stripe/w
 5. **Claude API**: chiave in `ANTHROPIC_API_KEY`; verificare i termini commerciali e le opzioni di conservazione dei dati (vedi `docs/COMPLIANCE.md`).
 6. **Back-office**: `/admin` con HTTP Basic Auth (`ADMIN_USER` / `ADMIN_PASSWORD`, password lunga).
 7. **Retention**: job giornaliero `node scripts/retention.mjs` con `RETENTION_MONTHS` definito con il DPO.
+
+## Immagini della Puglia
+
+Il sito contiene illustrazioni originali (`public/images/illustrations/`). Per usare fotografie reali:
+
+1. scegliere su Wikimedia Commons una foto per ciascuna voce di `images.sources.json` e scriverne il titolo (`File:...jpg`);
+2. eseguire `npm run images:fetch`: scarica le foto in `public/images/photos/`, accetta solo licenze PD/CC0/CC BY/CC BY-SA e compila `src/data/photo-credits.json`;
+3. il sito usa automaticamente la foto al posto dell'illustrazione e mostra autore e licenza (sotto l'immagine e in `/legal/crediti-immagini`).
+
+Per foto proprie o commissionate: copiarle in `public/images/photos/` e aggiungere la voce corrispondente in `photo-credits.json`. Vedi `docs/COMPLIANCE.md` §6 per persone riconoscibili e beni culturali.
 
 ## Aggiungere servizi o fornitori
 

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Orecchiette fatte a mano su un tagliere di legno con farina e grano">
+  <rect width="1200" height="750" fill="#efe1c8"/>
+  <path d="M120 120 H1080 Q1110 120 1110 150 V600 Q1110 630 1080 630 H120 Q90 630 90 600 V150 Q90 120 120 120Z" fill="#c8955a"/>
+  <g stroke="#b17e44" stroke-width="4" opacity=".6" fill="none"><path d="M100 220 Q600 200 1100 230 M100 360 Q600 340 1100 370 M100 500 Q600 480 1100 510"/></g>
+  <ellipse cx="380" cy="320" rx="190" ry="120" fill="#fbf6ec" opacity=".9"/>
+  <ellipse cx="380" cy="320" rx="80" ry="50" fill="#efe6d4"/>
+  <g fill="#f6d68d" stroke="#d6a24a" stroke-width="3">
+    <ellipse cx="700" cy="260" rx="26" ry="18"/><ellipse cx="770" cy="290" rx="26" ry="18"/><ellipse cx="840" cy="250" rx="26" ry="18"/>
+    <ellipse cx="720" cy="340" rx="26" ry="18"/><ellipse cx="800" cy="370" rx="26" ry="18"/><ellipse cx="880" cy="330" rx="26" ry="18"/>
+    <ellipse cx="760" cy="430" rx="26" ry="18"/><ellipse cx="850" cy="440" rx="26" ry="18"/><ellipse cx="930" cy="410" rx="26" ry="18"/>
+  </g>
+  <g fill="#e2b25e"><ellipse cx="700" cy="262" rx="12" ry="8"/><ellipse cx="770" cy="292" rx="12" ry="8"/><ellipse cx="840" cy="252" rx="12" ry="8"/><ellipse cx="720" cy="342" rx="12" ry="8"/><ellipse cx="800" cy="372" rx="12" ry="8"/><ellipse cx="880" cy="332" rx="12" ry="8"/><ellipse cx="760" cy="432" rx="12" ry="8"/><ellipse cx="850" cy="442" rx="12" ry="8"/><ellipse cx="930" cy="412" rx="12" ry="8"/></g>
+  <path d="M250 520 L560 470" stroke="#e8e2d6" stroke-width="14" stroke-linecap="round"/>
+  <g stroke="#c49a3c" stroke-width="6" stroke-linecap="round"><path d="M980 160 L1060 560"/></g>
+  <g fill="#d8ae4c"><ellipse cx="985" cy="180" rx="9" ry="16" transform="rotate(-12 985 180)"/><ellipse cx="1000" cy="230" rx="9" ry="16" transform="rotate(-12 1000 230)"/><ellipse cx="1010" cy="280" rx="9" ry="16" transform="rotate(-12 1010 280)"/></g>
+</svg>

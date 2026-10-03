@@ -5,6 +5,7 @@ import { getProvider, getService } from "@/data/catalog";
 import { useI18n } from "@/lib/i18n";
 import { formatEuro } from "@/lib/pricing";
 import { BookingForm } from "./BookingForm";
+import { SiteImg } from "./SiteImg";
 
 const MONTHS = {
   it: ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"],
@@ -27,6 +28,7 @@ export function ServiceDetail({ id }: { id: string }) {
       <div>
         <span className="tag">{t[service.category]}</span>
         <h1 style={{ marginTop: 8 }}>{service.title[locale]}</h1>
+        <SiteImg name={service.image} className="detail-image" showCredit priority />
         <p>
           <span className="price">{formatEuro(service.pricing.unitAmountCents, locale)}</span> <span className="muted">{basis}</span>
         </p>

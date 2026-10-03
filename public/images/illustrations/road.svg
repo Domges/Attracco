@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Auto con autista su una strada tra ulivi e muretti a secco pugliesi">
+  <defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ccbe3"/><stop offset="1" stop-color="#f1f6ef"/></linearGradient></defs>
+  <rect width="1200" height="750" fill="url(#s)"/>
+  <path d="M0 400 Q600 360 1200 400 V750 H0Z" fill="#b8c27c"/>
+  <path d="M520 400 L680 400 L1100 750 H100Z" fill="#8f8a83"/>
+  <path d="M600 410 L600 440 M600 480 L600 530 M600 580 L600 660 M600 700 L600 750" stroke="#f4efe2" stroke-width="10"/>
+  <g fill="#d9cfb5" stroke="#bfb291" stroke-width="2">
+    <path d="M0 520 L470 420 L480 440 L0 560Z"/><path d="M1200 520 L730 420 L720 440 L1200 560Z"/>
+  </g>
+  <g>
+    <path d="M150 470 v-60" stroke="#6b5136" stroke-width="12"/><ellipse cx="150" cy="390" rx="90" ry="55" fill="#7f9152"/>
+    <path d="M330 430 v-40" stroke="#6b5136" stroke-width="9"/><ellipse cx="330" cy="375" rx="60" ry="36" fill="#7f9152"/>
+    <path d="M1050 470 v-60" stroke="#6b5136" stroke-width="12"/><ellipse cx="1050" cy="390" rx="90" ry="55" fill="#7f9152"/>
+    <path d="M870 430 v-40" stroke="#6b5136" stroke-width="9"/><ellipse cx="870" cy="375" rx="60" ry="36" fill="#7f9152"/>
+  </g>
+  <g transform="translate(450 520)">
+    <path d="M20 90 Q30 30 90 20 L210 20 Q270 30 290 90 Z" fill="#1d2733"/>
+    <rect x="0" y="80" width="310" height="70" rx="22" fill="#1d2733"/>
+    <path d="M70 32 L120 32 L120 82 L50 82 Q55 45 70 32Z M135 32 L200 32 Q235 40 250 82 L135 82Z" fill="#9fd0e3" opacity=".8"/>
+    <rect x="15" y="110" width="40" height="14" rx="6" fill="#f5e7b5"/><rect x="255" y="110" width="40" height="14" rx="6" fill="#f5e7b5"/>
+    <circle cx="70" cy="155" r="26" fill="#222"/><circle cx="240" cy="155" r="26" fill="#222"/>
+  </g>
+</svg>
