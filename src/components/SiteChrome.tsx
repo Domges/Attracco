@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { OPERATOR } from "@/lib/legal";
 import { LocaleProvider, useI18n } from "@/lib/i18n";
@@ -17,13 +18,16 @@ function Logo() {
 
 function Header() {
   const { locale, setLocale, t } = useI18n();
+  // In home l'intestazione è trasparente sopra la foto di apertura.
+  const overlay = usePathname() === "/";
   return (
-    <header className="site">
+    <header className={overlay ? "site overlay" : "site"}>
       <div className="wrap">
         <Link href="/" className="brand">
           <Logo />
           <span>
-            Attracco <small>{t.tagline}</small>
+            Attracco
+            <small>{t.tagline}</small>
           </span>
         </Link>
         <nav className="nav" aria-label="Menu">

@@ -53,17 +53,22 @@ export default function Home() {
         <SiteImg name="hero" showCredit priority />
         <div className="wrap">
           <span className="kicker">{t.heroKicker}</span>
-          <h1>{t.heroTitle2}</h1>
+          <h1>
+            {t.heroTitleA} <em>{t.heroTitleB}</em>
+          </h1>
           <p className="lead">{t.heroText2}</p>
+          <ConciergeChat />
         </div>
       </div>
 
-      <div className="concierge-wrap">
-        <ConciergeChat />
-      </div>
-
       <section aria-labelledby="cat-title">
-        <h2 id="cat-title">{t.categoriesTitle}</h2>
+        <div className="section-head">
+          <div>
+            <span className="eyebrow">{t.catEyebrow}</span>
+            <h2 id="cat-title">{t.categoriesTitle}</h2>
+          </div>
+          <p>{t.catLead}</p>
+        </div>
         <div className="categories">
           {categories.map((c) => (
             <Link
@@ -76,16 +81,22 @@ export default function Home() {
               <div className="body">
                 <h3>{t[c.key]}</h3>
                 <p>{c.text}</p>
+                <span className="more">{t.explore}</span>
               </div>
             </Link>
           ))}
         </div>
       </section>
 
-      <div className="band full-bleed" id="come-funziona">
+      <div className="band-navy full-bleed" id="come-funziona">
         <div className="wrap">
           <section aria-labelledby="how-title">
-            <h2 id="how-title">{t.howTitle}</h2>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">{t.howEyebrow}</span>
+                <h2 id="how-title">{t.howTitle}</h2>
+              </div>
+            </div>
             <div className="steps">
               <div className="step"><h3>{t.step1Title}</h3><p>{t.step1Text}</p></div>
               <div className="step"><h3>{t.step2Title}</h3><p>{t.step2Text}</p></div>
@@ -104,13 +115,18 @@ export default function Home() {
       </div>
 
       <section id="servizi" aria-labelledby="services-title" style={{ scrollMarginTop: 80 }}>
-        <h2 id="services-title">{t.servicesTitle}</h2>
-        <div className="filters" role="group">
+        <div className="section-head">
+          <div>
+            <span className="eyebrow">{t.servicesEyebrow}</span>
+            <h2 id="services-title">{t.servicesTitle}</h2>
+          </div>
+          <div className="filters" role="group">
           {(["all", "chef", "driver", "sailing"] as const).map((f) => (
             <button key={f} aria-pressed={filter === f} onClick={() => setFilter(f)}>
               {f === "all" ? t.all : t[f]}
             </button>
           ))}
+          </div>
         </div>
         <div className="grid">
           {visible.map((s) => (
@@ -119,8 +135,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section aria-labelledby="gallery-title">
-        <h2 id="gallery-title">{t.galleryTitle}</h2>
+      <section aria-labelledby="gallery-title" style={{ paddingTop: 0 }}>
+        <div className="section-head">
+          <div>
+            <span className="eyebrow">{t.galleryEyebrow}</span>
+            <h2 id="gallery-title">{t.galleryTitle}</h2>
+          </div>
+        </div>
         <div className="gallery">
           {GALLERY.map((g) => (
             <div key={g.key} className="gallery-item">

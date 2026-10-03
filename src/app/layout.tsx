@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { SiteChrome } from "@/components/SiteChrome";
+import "@fontsource/bodoni-moda/latin-400.css";
+import "@fontsource/bodoni-moda/latin-400-italic.css";
+import "@fontsource/bodoni-moda/latin-500.css";
+import "@fontsource-variable/figtree/index.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
