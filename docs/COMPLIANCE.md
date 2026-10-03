@@ -50,7 +50,21 @@ Il sito usa fotografie scaricate da Wikimedia Commons (`public/images/photos/`, 
 
 Restano tre profili da valutare caso per caso, indipendentemente dalla licenza d'autore. Le persone riconoscibili richiedono il consenso alla diffusione del ritratto (artt. 96-97 L. 633/1941) e, per uso promozionale, la licenza Commons non basta. I beni culturali pubblici (ad esempio Castel del Monte, castelli e musei statali) sono soggetti, per la riproduzione a fini commerciali, alla concessione e ai canoni degli artt. 107-108 D.Lgs. 42/2004, con un orientamento giurisprudenziale recente restrittivo [verificare]: è preferibile scegliere paesaggi, borghi e mare, evitando beni culturali come soggetto principale. In Italia non è riconosciuta una libertà di panorama generale per opere protette, per cui vanno evitate opere d'arte o architetture contemporanee in primo piano. In alternativa a Commons si possono usare foto commissionate a un fotografo locale con cessione dei diritti per uso commerciale e web, che è la soluzione più pulita per un sito promozionale.
 
-## 7. Checklist operativa prima del go-live
+## 7. Onboarding dei fornitori
+
+La procedura è descritta in `docs/ONBOARDING_FORNITORI.md`. Le scelte con rilievo giuridico sono cinque.
+
+Le **Condizioni per i fornitori** (`/legal/fornitori`) sono strutturate sugli obblighi del Reg. (UE) 2019/1150: disponibilità prima dell'adesione, parametri di posizionamento (incluso il concierge AI), assenza di trattamento differenziato, motivazione delle limitazioni e sospensioni con effetto immediato, preavviso di 30 giorni per la cessazione da parte della piattaforma, preavviso di 15 giorni per le modifiche, accesso ai dati, gestione dei reclami e mediazione. I riferimenti agli articoli del regolamento sono omessi nel testo e vanno verificati sulla fonte primaria; per reclami interni e mediazione (artt. 11-12) va verificato se Attracco rientri nell'esenzione per le piccole imprese, ferma la scelta di offrirli comunque. La clausola di non aggiramento è tra parentesi quadre: portata e durata vanno valutate anche sotto il profilo antitrust.
+
+L'**approvazione specifica ex artt. 1341-1342 c.c.** è raccolta con una seconda spunta separata, registrando versione, firmatario, data e IP. La sufficienza della doppia spunta online per le clausole vessatorie è oggetto di orientamenti giurisprudenziali non uniformi (alcuni richiedono la firma elettronica qualificata o avanzata) [verificare]; se si vuole maggiore certezza, le clausole più rilevanti (foro, limitazione di responsabilità, recesso e sospensione) possono essere fatte sottoscrivere con firma digitale in un documento separato.
+
+I **dati DAC7** (codice fiscale, P.IVA, REA, sede, data di nascita per le persone fisiche) sono raccolti nell'onboarding; resta da verificare l'identificativo del conto finanziario (IBAN), che Attracco non riceve perché raccolto da Stripe, il regime dei solleciti prima della sospensione e i termini di conservazione [verificare D.Lgs. 32/2023 e provvedimenti attuativi].
+
+I **documenti abilitativi** sono conservati nel database (region UE) per non aggiungere un ulteriore responsabile; contengono dati personali di terzi (conducenti, skipper), da qui l'impegno informativo nell'informativa fornitori. Le copie dei documenti d'identità non sono richieste: la verifica KYC è svolta da Stripe.
+
+Per **Stripe Connect** gli account sono Express con `losses.payments = application`: la piattaforma risponde verso Stripe dei saldi negativi dei fornitori (contestazioni, rimborsi non coperti), da qui il diritto di rivalsa e compensazione nelle condizioni. Con le destination charge l'addebito avviene sull'account della piattaforma e i fondi sono trasferiti al fornitore: va verificato, alla luce della struttura contrattuale Stripe, che il flusso non configuri la detenzione di fondi per conto terzi da parte di Attracco e, in subordine, l'applicabilità dell'esclusione dell'agente commerciale (art. 3, lett. b) PSD2, come recepita nell'ordinamento italiano) [verificare]. Un'alternativa che elimina il dubbio sono le direct charge sull'account del fornitore, con l'effetto di trasferire al fornitore costi e contestazioni.
+
+## 8. Checklist operativa prima del go-live
 
 - [ ] Completare i dati del gestore in `src/lib/legal.ts` (ragione sociale, P.IVA, REA, PEC, email privacy)
 - [ ] Completare i dati reali di ciascun fornitore e servizio in `src/data/catalog.ts` (ragione sociale, P.IVA, licenze, polizze, prezzi IVA inclusa)
@@ -67,3 +81,7 @@ Restano tre profili da valutare caso per caso, indipendentemente dalla licenza d
 - [ ] Traduzione inglese dei testi legali rivista da un professionista
 - [ ] Scegliere le foto (Commons o fotografo con cessione diritti) e verificare persone, beni culturali e opere protette
 - [ ] Aggiornare `TERMS_VERSION` / `PRIVACY_VERSION` a ogni modifica dei testi
+- [ ] Validare Condizioni e informativa per i fornitori, elenco documentale per categoria, commissione e foro; poi `PROVIDER_DOCS_DRAFT = false`
+- [ ] Verificare la qualificazione del flusso destination charge (PSD2) e la responsabilità per saldi negativi degli account Express
+- [ ] Verificare la validità dell'approvazione specifica online ex art. 1341 c.c. o prevedere la firma digitale
+- [ ] Definire `PROVIDER_APPLICATION_RETENTION_MONTHS` e `PROVIDER_RETENTION_MONTHS`

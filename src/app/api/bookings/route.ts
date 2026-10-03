@@ -6,7 +6,8 @@ import { env } from "@/lib/env";
 import { PRIVACY_VERSION, TERMS_VERSION } from "@/lib/legal";
 import { computeQuote } from "@/lib/pricing";
 import { clientIp, rateLimit } from "@/lib/rateLimit";
-import { connectedAccountFor, stripe } from "@/lib/stripe";
+import { destinationAccount } from "@/lib/providers/server";
+import { stripe } from "@/lib/stripe";
 
 export const runtime = "nodejs";
 
@@ -65,7 +66,9 @@ export async function POST(req: Request) {
   if (!result.ok) return Response.json({ error: "invalid_quote", issues: result.errors }, { status: 422 });
   const q = result.quote;
 
-  const destination = connectedAccountFor(provider.stripeAccountEnv);
+  // Account Stripe del fornitore: attivo e abilitato agli incassi, altrimenti il servizio non è prenotabile.
+  const destination = await destinationAccount(provider.id, provider.stripeAccountEnv);
+  if (!destination) return Response.json({ error: "provider_unavailable" }, { status: 503 });
   const ref = newPublicRef();
   const now = new Date();
 

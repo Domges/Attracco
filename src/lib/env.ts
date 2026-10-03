@@ -12,6 +12,8 @@ export const env = {
   databaseUrl: () => required("DATABASE_URL"),
   stripeSecretKey: () => required("STRIPE_SECRET_KEY"),
   stripeWebhookSecret: () => required("STRIPE_WEBHOOK_SECRET"),
+  // Segreto dell'endpoint che riceve gli eventi degli account connessi (account.updated).
+  stripeConnectWebhookSecret: () => process.env.STRIPE_CONNECT_WEBHOOK_SECRET || undefined,
   platformFeeBps: () => Number(process.env.PLATFORM_FEE_BPS ?? "0"),
   conciergeModel: () => process.env.CONCIERGE_MODEL ?? "claude-opus-5-5",
   conciergeEffort: (): "low" | "medium" | "high" => {

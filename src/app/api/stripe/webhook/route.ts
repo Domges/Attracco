@@ -2,6 +2,7 @@ import type Stripe from "stripe";
 import { transition } from "@/lib/bookings";
 import { db } from "@/lib/db";
 import { env } from "@/lib/env";
+import { syncStripeAccount } from "@/lib/providers/server";
 import { stripe } from "@/lib/stripe";
 
 export const runtime = "nodejs";
@@ -16,12 +17,20 @@ export async function POST(req: Request) {
   const signature = req.headers.get("stripe-signature");
   if (!signature) return new Response("missing signature", { status: 400 });
 
-  let event: Stripe.Event;
-  try {
-    event = stripe().webhooks.constructEvent(await req.text(), signature, env.stripeWebhookSecret());
-  } catch {
-    return new Response("invalid signature", { status: 400 });
+  // Lo stesso URL può essere registrato come endpoint della piattaforma e come
+  // endpoint Connect (eventi degli account connessi): ognuno ha il suo segreto.
+  const payload = await req.text();
+  let event: Stripe.Event | undefined;
+  for (const secret of [env.stripeWebhookSecret(), env.stripeConnectWebhookSecret()]) {
+    if (!secret) continue;
+    try {
+      event = stripe().webhooks.constructEvent(payload, signature, secret);
+      break;
+    } catch {
+      // prova il segreto successivo
+    }
   }
+  if (!event) return new Response("invalid signature", { status: 400 });
 
   // Idempotenza: ogni evento è elaborato una sola volta.
   const fresh = await db()`INSERT INTO stripe_events (id, type) VALUES (${event.id}, ${event.type}) ON CONFLICT DO NOTHING RETURNING id`;
@@ -57,6 +66,10 @@ export async function POST(req: Request) {
       case "payment_intent.succeeded": {
         const bookingId = await bookingIdFromIntent(event.data.object);
         if (bookingId) await transition(bookingId, ["authorized"], "confirmed", { via: "webhook" });
+        break;
+      }
+      case "account.updated": {
+        await syncStripeAccount(event.data.object);
         break;
       }
       case "charge.refunded": {

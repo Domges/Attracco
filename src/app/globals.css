@@ -206,3 +206,22 @@ table.admin th, table.admin td { border-bottom: 1px solid var(--stone-deep); pad
 .table-scroll { overflow-x: auto; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+
+/* Area fornitori */
+.chips-light { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0 12px; }
+.steps-list { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 20px; }
+.steps-list > li { background: var(--stone-light); border-radius: var(--radius); padding: 20px 22px; }
+.steps-list h2 { font-size: 1.4rem; font-weight: 400; margin: 0 0 6px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.status { display: inline-block; font: 600 .68rem var(--body); letter-spacing: .14em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: rgba(13, 38, 51, .1); color: var(--navy); }
+.status.ok { background: var(--olive); color: var(--stone-light); }
+.status.warn { background: var(--danger); color: #fff; }
+.doc-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; padding: 12px 0; border-top: 1px solid var(--stone-deep); }
+.doc-row:first-child { border-top: 0; }
+.doc-row input[type="file"] { width: auto; max-width: 100%; padding: 6px; }
+.admin-nav { display: flex; gap: 20px; padding-top: 24px; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.admin-nav a[aria-current="page"] { text-decoration-thickness: 2px; }
+.admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+@media (max-width: 900px) { .admin-grid { grid-template-columns: 1fr; } }
+dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0; font-size: .92rem; }
+dl.facts dt { color: var(--ink-soft); }
+dl.facts dd { margin: 0; overflow-wrap: anywhere; }

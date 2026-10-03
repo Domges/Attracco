@@ -59,6 +59,7 @@ function Footer() {
           <Link href="/legal/concierge-ai">{t.aiInfo}</Link>
           <Link href="/legal/note-legali">{t.legalNotes}</Link>
           <Link href="/legal/crediti-immagini">{t.imageCredits}</Link>
+          <Link href="/partner">{t.partner}</Link>
         </nav>
       </div>
     </footer>

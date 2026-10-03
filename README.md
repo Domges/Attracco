@@ -7,7 +7,8 @@ Sito **attracco.app**: il turista chatta con un concierge AI, sceglie tra chef p
 1. **Concierge AI** (`/api/chat`): Claude (modello `claude-opus-5-5`) interroga il catalogo tramite tool in sola lettura (`search_services`, `get_service_details`, `prepare_booking`). Il prezzo è sempre calcolato dal server (`src/lib/pricing.ts`), mai dal modello. Quando la scelta è completa, la chat mostra una scheda con il pulsante **Prenota**.
 2. **Modulo di prenotazione** (`/servizi/[id]`): raccoglie i dati del cliente, i consensi e, solo per lo chef, allergie/intolleranze con consenso esplicito separato.
 3. **Pagamento** (`/api/bookings`): Stripe Checkout con **Stripe Connect** (destination charge, `on_behalf_of` = fornitore). La carta è solo **pre-autorizzata** (`capture_method: manual`).
-4. **Conferma del fornitore** (`/admin`): il back-office conferma (addebito), rifiuta (sblocco dell'importo) o annulla e rimborsa. Stripe invia gli aggiornamenti di stato tramite webhook (`/api/stripe/webhook`).
+4. **Onboarding fornitori** (`/partner`): candidatura pubblica, link personale per dati DAC7, accettazione delle condizioni, documenti e account Stripe Express; verifica e attivazione da `/admin/fornitori`. Procedura in `docs/ONBOARDING_FORNITORI.md`.
+5. **Conferma del fornitore** (`/admin`): il back-office conferma (addebito), rifiuta (sblocco dell'importo) o annulla e rimborsa. Stripe invia gli aggiornamenti di stato tramite webhook (`/api/stripe/webhook`).
 
 ```
 Turista ──chat──▶ /api/chat ──▶ Claude ──tool──▶ catalogo + preventivo (server)
@@ -25,7 +26,10 @@ Turista ──chat──▶ /api/chat ──▶ Claude ──tool──▶ catal
 | `src/lib/pricing.ts` | Calcolo e validazione del preventivo (data, stagione, orario, area, ospiti) |
 | `src/lib/concierge/` | Prompt di sistema, tool e loop del concierge |
 | `src/app/api/` | Chat, prenotazioni, webhook Stripe, azioni di back-office |
-| `src/app/legal/` | Termini, privacy, cookie, trasparenza AI, note legali (IT/EN) |
+| `src/app/legal/` | Termini, privacy, cookie, trasparenza AI, note legali (IT/EN); condizioni e privacy fornitori (IT) |
+| `src/app/partner/` | Candidatura e area di onboarding dei fornitori |
+| `src/lib/providers/` | Regole dell'onboarding (documenti, checklist di attivazione) e accesso a database/Stripe |
+| `src/app/admin/fornitori/` | Back-office fornitori: verifica documenti, attivazione, sospensione |
 | `db/schema.sql` | Schema PostgreSQL |
 | `src/data/images.ts` | Registro immagini (illustrazioni e foto con crediti) |
 | `scripts/fetch-commons-images.mjs` | Download foto da Wikimedia Commons con controllo licenza |
@@ -53,6 +57,8 @@ Per i webhook in locale: `stripe listen --forward-to localhost:3000/api/stripe/w
 4. **Stripe**:
    - attivare Connect e invitare ogni fornitore come account connesso (Stripe esegue la verifica KYC); copiare gli `acct_...` nelle variabili `STRIPE_ACCOUNT_*`;
    - creare l'endpoint webhook `https://attracco.app/api/stripe/webhook` con gli eventi `checkout.session.completed`, `checkout.session.expired`, `payment_intent.canceled`, `payment_intent.succeeded`, `charge.refunded`; copiare il segreto in `STRIPE_WEBHOOK_SECRET`;
+   - sullo stesso URL, un endpoint Connect (eventi degli account connessi) con `account.updated`; segreto in `STRIPE_CONNECT_WEBHOOK_SECRET`;
+   - i nuovi fornitori creano il proprio account dall'onboarding (`/partner`), senza variabili d'ambiente;
    - abilitare le ricevute email ai clienti.
 5. **Claude API**: chiave in `ANTHROPIC_API_KEY`; verificare i termini commerciali e le opzioni di conservazione dei dati (vedi `docs/COMPLIANCE.md`).
 6. **Back-office**: `/admin` con HTTP Basic Auth (`ADMIN_USER` / `ADMIN_PASSWORD`, password lunga).
@@ -76,4 +82,5 @@ Modificare `src/data/catalog.ts`: ogni servizio indica fornitore, aree (solo loc
 
 - Disponibilità non collegata ai calendari dei fornitori: la disponibilità è verificata con la conferma entro 48 ore.
 - Email transazionali (conferma/rifiuto) non ancora implementate: Stripe invia la ricevuta; le comunicazioni del fornitore vanno gestite dal back-office.
+- Onboarding fornitori: il link personale va inviato manualmente dal back-office; i dati pubblici del fornitore e le schede dei servizi restano in `src/data/catalog.ts` e vanno aggiornati nel codice al momento dell'attivazione.
 - Il rate limit del concierge è in memoria per istanza: con più istanze va usato uno store condiviso (es. Redis).
